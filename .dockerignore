@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+.git
+.pnpm-store
+.env
+.env.*
+*.log
+Dockerfile
+docker-compose*.yml
+README.md
+.DS_Store
