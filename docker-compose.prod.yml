@@ -9,7 +9,7 @@ services:
     image: nest-mikro-orm-api:production
     restart: unless-stopped
     env_file:
-      - ${ENV_FILE:-.env.production}
+      - ${ENV_FILE:-.env}
     environment:
       NODE_ENV: production
       PORT: 5001
@@ -29,7 +29,7 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     env_file:
-      - ${ENV_FILE:-.env.production}
+      - ${ENV_FILE:-.env}
     ports:
       - "80:80"
       - "443:443"
