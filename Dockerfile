@@ -18,7 +18,7 @@ COPY . .
 RUN pnpm run build
 RUN pnpm prune --prod
 
-FROM node:20-alpine AS production
+FROM base AS production
 
 WORKDIR /app
 

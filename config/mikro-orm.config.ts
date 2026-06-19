@@ -3,6 +3,8 @@ import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { ReflectMetadataProvider } from '@mikro-orm/decorators/legacy';
 import { MikroOrmModuleOptions } from '@mikro-orm/nestjs';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const ormCOnfig: MikroOrmModuleOptions = {
   driver: PostgreSqlDriver,
   metadataProvider: ReflectMetadataProvider,
@@ -13,12 +15,12 @@ const ormCOnfig: MikroOrmModuleOptions = {
   dbName: process.env.DB_NAME,
   autoLoadEntities: true,
   migrations: {
-    path: './src/db/migrations',
+    path: isProduction ? './dist/src/db/migrations' : './src/db/migrations',
     pathTs: './src/db/migrations',
   },
   seeder: {
-    path: './src/db/seeders',
-    pathTs: './src/db/seeders',
+    path: isProduction ? './dist/src/seeders' : './src/seeders',
+    pathTs: './src/seeders',
     glob: '!(*.d).{js,ts}',
     emit: 'ts',
     fileName: (className: string) => className,
