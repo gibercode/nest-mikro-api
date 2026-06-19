@@ -16,7 +16,6 @@ FROM deps AS build
 
 COPY . .
 RUN pnpm run build
-RUN pnpm prune --prod
 
 FROM base AS production
 
@@ -24,10 +23,10 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY --chown=node:node --from=build /app/package.json ./package.json
-COPY --chown=node:node --from=build /app/node_modules ./node_modules
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --prod --frozen-lockfile
 COPY --chown=node:node --from=build /app/dist ./dist
-RUN chown node:node /app
+RUN chown -R node:node /app
 
 USER node
 
