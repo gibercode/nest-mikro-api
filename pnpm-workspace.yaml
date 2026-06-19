@@ -4,7 +4,7 @@ packages:
 overrides:
   node-releases: 2.0.47
 
-onlyBuiltDependencies:
-  - '@nestjs/core'
-  - '@swc/core'
-  - msgpackr-extract
+allowBuilds:
+  '@nestjs/core': true
+  '@swc/core': true
+  msgpackr-extract: true
