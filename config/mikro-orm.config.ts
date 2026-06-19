@@ -1,6 +1,6 @@
 import 'dotenv/config';
-import { defineConfig } from '@mikro-orm/postgresql';
 import { ReflectMetadataProvider } from '@mikro-orm/decorators/legacy';
+import { defineConfig } from '@mikro-orm/postgresql';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -11,8 +11,8 @@ const ormCOnfig = defineConfig({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   dbName: process.env.DB_NAME,
-  entities: [isProduction ? './dist/src/**/*.entity.js' : './src/**/*.entity.ts'],
-  entitiesTs: ['./src/**/*.entity.ts'],
+  entities: ['./dist/src/entities'],
+  entitiesTs: ['./src/entities'],
   migrations: {
     path: isProduction ? './dist/src/db/migrations' : './src/db/migrations',
     pathTs: './src/db/migrations',
