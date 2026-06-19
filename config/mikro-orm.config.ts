@@ -1,8 +1,10 @@
 import 'dotenv/config';
+import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { ReflectMetadataProvider } from '@mikro-orm/decorators/legacy';
 import { MikroOrmModuleOptions } from '@mikro-orm/nestjs';
 
 const ormCOnfig: MikroOrmModuleOptions = {
+  driver: PostgreSqlDriver,
   metadataProvider: ReflectMetadataProvider,
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT || '5432', 10),
