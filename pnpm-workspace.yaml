@@ -1,0 +1,5 @@
+packages:
+  - .
+
+overrides:
+  node-releases: 2.0.47
