@@ -27,6 +27,7 @@ ENV NODE_ENV=production
 COPY --chown=node:node --from=build /app/package.json ./package.json
 COPY --chown=node:node --from=build /app/node_modules ./node_modules
 COPY --chown=node:node --from=build /app/dist ./dist
+RUN chown node:node /app
 
 USER node
 
