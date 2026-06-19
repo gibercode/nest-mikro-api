@@ -11,8 +11,8 @@ const ormCOnfig = defineConfig({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   dbName: process.env.DB_NAME,
-  entities: [isProduction ? './dist/src/entities' : './src/entities'],
-  entitiesTs: ['./src/entities'],
+  entities: [isProduction ? './dist/src/**/*.entity.js' : './src/**/*.entity.ts'],
+  entitiesTs: ['./src/**/*.entity.ts'],
   migrations: {
     path: isProduction ? './dist/src/db/migrations' : './src/db/migrations',
     pathTs: './src/db/migrations',
