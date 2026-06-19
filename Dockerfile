@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
-RUN npm install -g pnpm@10.12.4
+RUN npm install -g pnpm@11.8.0
 
 FROM base AS deps
 
