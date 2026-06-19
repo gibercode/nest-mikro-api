@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
-RUN corepack enable
+RUN npm install -g pnpm@10.12.4
 
 FROM base AS deps
 
