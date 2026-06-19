@@ -3,3 +3,8 @@ packages:
 
 overrides:
   node-releases: 2.0.47
+
+onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@swc/core'
+  - msgpackr-extract
